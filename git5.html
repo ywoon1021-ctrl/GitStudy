@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>git master</h1>
+    <h2>git intersection</h2>
+
+    <div>
+      <h3>Git Flow전략 (by Vincent Driessen)</h3>
+      <br />
+      <img src="/img/git 분기.png" alt="git 분기" /><br />
+      -main => 유저 배포용 (최종 결과물) <br />
+      -develop => 개발용 <br />
+      -feature/guild, feature/friend => 신기능 -release => 배포전 테스트 단계<br />
+      <img src="/img/hot fix.png" alt="hotfix" /><br />
+      -유저 배포후 오류 발생 시 - hot fix branch 생성 해서 바로 고치기<br />
+      -release,hot fix는 develop에도 merge해주길 <br />
+      <hr />
+      <h3>Trunk -Based전략(브랜치 하나만 잘 관리하자)</h3>
+      <br />
+      <img src="/img/Trunk -Based.png" alt="Trunk -Based" /><br />
+      - main 브랜치에 곁가지 브랜치를 그때그때 붙임 <br />
+      - 소스 코드 한곳에만 있어서 편함 (메인만 관리하면 됨)<br />
+      - 하지만 테스트 많이 자주 해야 됨<br />
+      - 안정화된 프로젝트에 많이 쓰임<br />
+      <hr />
+
+      <br />
+    </div>
+
+    <button onclick="history.back()">뒤로가기</button>
+  </body>
+</html>

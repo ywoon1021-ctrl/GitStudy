@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>git master</h1>
+    <h2>git 명령어</h2>
+    <div>
+      0. 터미널 => new 터미널 <br />
+      1.git init(새로운 저장소 생성) <br />
+      2.git add + "파일명" (파일 깃에 추가) (파일고르기) (staging area_commit할
+      파일을 골라놨다는 것) <br />
+      2_1.git add +app.html app2.html => 여러 파일 저장 <br />
+      2_2. git add . 모든파일스테이징 <br />
+      3.git commit +(기록 명령) -m +(메모, 혹은 버전) (파일을 깃 폴더에넣기)
+      (repository_저장소) <br />
+      4.git status (상태창) (현재 스테이징되어있는파일조회) <br />
+      5.git log --all --oneline (현재 커밋 되어있는 파일 조회)<br />
+      6. git diff 최근 commit vs 현재 파일 차이점 보여줌 (j/k 로 스크롤바 조작 ,
+      q키로 종료) (보기 힘들어서 잘 안씀)<br />
+      7. git diff tool => vim editor (비쥬얼적으로 비교)(h,j,k,l방향키, :q
+      ,:qa로 종료 안나가지면 :q! => 강제 종료다) <br />
+      7_1. git difftool + ???? (?는 커밋 아이디) (현재 파일 vs 특정커밋 비교
+      가능)
+      <br />
+      7_2. 커밋 아이디는 git log --oneline --all로 확인 (노란 글씨) <br />
+      7_3. git difftool ???? ???? 커밋 아이디 2개쓰면 커밋 아이디 끼리 비교
+      <br />
+      8. extention Git Graph 로 좀더 편하기 볼수 있다 (꼭 터미널 안써도 ㄱㅊ)<br />
+      9. git branch 브랜치명 (branch생성 => 기존 파일의 복사본을 만들어서
+      안전하게 먼저 작업 해보고 적용하자) <br />
+      10. git swich 브랜치명 (브랜치로 이동) <br />
+      11. 브랜치든 메인이든 add랑 commit 해놓자 <br />
+      12. git merge 브랜치명 (브랜치와 메인 합치기) <br />
+      12_1. merge 할때 같은 파일의 같은 부분이 둘다 다르게 수정 되어있을 경우
+      충돌 발생 충돌 해결하고 add, commit 하자 <br />
+      13. git branch -d 브랜치명 (merge 완료된 브랜치 삭제할때 씀) <br />
+      14. git branch -D 브랜치명 (merge 안한 브랜치 삭제)<br />
+      15. git rebase (브랜치의 시작점을 옮김) <br />
+      16. git merge --squash 새브런치 분기점 합치기? <br />
+      17. git restore 파일명 (파일을 최근 commit 상태로 되돌리기) <br />
+      18. git restore --source 커밋 아이디 +파일명 (파일을 최근 commit 상태로
+      되돌리기) <br />
+      19. git restore --staged 파일명 (staging 취소 ) <br />
+      20. git revert 커밋 아이디 (commit 취소) (취소 후 olg --oneline 하면 기존
+      커밋 취소후 새로 커밋 해줌) (여러 아이디 넣을수 있음)<br />
+      21. git revert HEAD 최근 커밋 취소 <br />
+      22. git reset --hard 커밋 아이디 (과거로 모든걸 되돌리기) (타임머신)
+      (reset은 위험도 있어서 협업에서 잘 안씀)<br />
+      23. git reset --soft 리셋인데 변동 사항 지우지 않고 스테이징 <br />
+      24. git reset --mixed 리셋인데 변동 사항 지우지 않고 unstage <br />
+      25. git branch -M main 기본 브랜치 main으로 설정 <br />
+      26. git push -u 원격저장 주소 + 올릴 로컬 브랜치명(로컬 저장소를
+      원격저장소로 업로드) (원격 저장소와 로컬 저장소의 내용이 같을때만 push
+      가능)<br />
+      26_1. -u는 주소 기역 (한번 하고 나서는 git push만 써도됨) <br />
+      27. git remote add 변수명 + 주소 (git에서 변수명 사용 가능) <br />
+      28. git clone + 저장 주소 (소스 코드 복사) <br />
+      29. git pull (원격 저장소 내용 로컬 저장소로 땡겨오기) <br />
+      29_1. git pull +주소 변수+ 브랜치명 (브랜치명으로 땡겨오기 가능) <br />
+      29_2. git pull은 (git fetch + git merge => merge confilct 발생 가능)<br />
+      30. git fetch (원격 저장소 신규 commit 가져오기) <br />
+    </div>
+    <button onclick="history.back()">뒤로가기</button>
+  </body>
+</html>
