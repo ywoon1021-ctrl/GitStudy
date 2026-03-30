@@ -107,17 +107,24 @@
       button:hover {
         background: #1557b0;
       }
+      #imgsize {
+        width: 300px;
+      }
     </style>
   </head>
   <body>
     <h1>git master</h1>
     <h2>git git merge 방법들</h2>
     <div>
-      <img src="/img/3waymerge.png" alt="3waymerge" /><br />
+      <img id="imgsize" src="/img/3waymerge.png" alt="3waymerge" /><br />
       1. 각 브랜치에 신규commit 이 있는경우 <br />
       1_1. main과 다른 브랜치가 둘다 커밋 되어있는 경우<br />
       <hr />
-      <img src="/img/fast-forward merge.png" alt="fast-forward merge" /><br />
+      <img
+        id="imgsize"
+        src="/img/fast-forward merge.png"
+        alt="fast-forward merge"
+      /><br />
       1. 기준 브랜치에 신규 commit이 없는 경우<br />
       1_1. mian 브랜치에 신규 commit이 없는 경우 새로운 브랜치가 main이됨<br />
       1_2. 딱히 섞을게 없으니까 신규 브랜치를 main으로 치환 해줌<br />
@@ -126,7 +133,12 @@
       4. merge 완료된 브랜치 삭제는 git branch -d 브랜치명<br />
       5. merge 안한 브랜치 삭제는 git branch -D 브랜치명<br />
       <hr />
-      <img src="/img/rebase and merge.png" alt=" rebase and merge" /> <br />
+      <img
+        id="imgsize"
+        src="/img/rebase and merge.png"
+        alt=" rebase and merge"
+      />
+      <br />
       1. git rebase 브랜치의 시작점을 옮김<br />
       2. fast-forward merge로 함 => 분기 생성 없어짐<br />
       3. 신규 commit 이있으면 fast-forward merge 못함 <br />
