@@ -3,67 +3,340 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Git Commands</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+        background: #f4f6f8;
+      }
+
+      .wrapper {
+        max-width: 800px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+      h2 {
+        margin-bottom: 25px;
+        border-left: 4px solid #1a73e8;
+        padding-left: 10px;
+        color: #555;
+      }
+
+      .cmd {
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .cmd:hover {
+        background: #e9f2ff;
+        transform: translateX(5px);
+      }
+
+      .sub {
+        margin-left: 20px;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      button {
+        margin-top: 30px;
+        padding: 10px 16px;
+        border: none;
+        background: #1a73e8;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 420px;
+        max-width: 90%;
+      }
+
+      .code {
+        background: #f1f3f5;
+        padding: 10px;
+        border-radius: 6px;
+        font-family: monospace;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
+
   <body>
-    <h1>git master</h1>
-    <h2>git 명령어</h2>
-    <div>
-      0. 터미널 => new 터미널 <br />
-      1.git init(새로운 저장소 생성) <br />
-      2.git add + "파일명" (파일 깃에 추가) (파일고르기) (staging area_commit할
-      파일을 골라놨다는 것) <br />
-      2_1.git add +app.html + app2.html => 여러 파일 저장 <br />
-      2_2. git add . 모든파일스테이징 <br />
-      3.git commit +(기록 명령) -m +(메모, 혹은 버전) (파일을 깃 폴더에넣기)
-      (repository_저장소) <br />
-      4.git status (상태창) (현재 스테이징되어있는파일조회) <br />
-      5.git log --all --oneline (현재 커밋 되어있는 파일 조회)<br />
-      6. git diff 최근 commit vs 현재 파일 차이점 보여줌 (j/k 로 스크롤바 조작 ,
-      q키로 종료) (보기 힘들어서 잘 안씀)<br />
-      7. git diff tool => vim editor (비쥬얼적으로 비교)(h,j,k,l방향키, :q
-      ,:qa로 종료 안나가지면 :q! => 강제 종료다) <br />
-      7_1. git difftool + ???? (?는 커밋 아이디) (현재 파일 vs 특정커밋 비교
-      가능)
-      <br />
-      7_2. 커밋 아이디는 git log --oneline --all로 확인 (노란 글씨) <br />
-      7_3. git difftool ???? ???? 커밋 아이디 2개쓰면 커밋 아이디 끼리 비교
-      <br />
-      8. extention Git Graph 로 좀더 편하기 볼수 있다 (꼭 터미널 안써도 ㄱㅊ)<br />
-      9. git branch 브랜치명 (branch생성 => 기존 파일의 복사본을 만들어서
-      안전하게 먼저 작업 해보고 적용하자) <br />
-      10. git swich 브랜치명 (브랜치로 이동) <br />
-      11. 브랜치든 메인이든 add랑 commit 해놓자 <br />
-      12. git merge 브랜치명 (브랜치와 메인 합치기) <br />
-      12_1. merge 할때 같은 파일의 같은 부분이 둘다 다르게 수정 되어있을 경우
-      충돌 발생 충돌 해결하고 add, commit 하자 <br />
-      13. git branch -d 브랜치명 (merge 완료된 브랜치 삭제할때 씀) <br />
-      14. git branch -D 브랜치명 (merge 안한 브랜치 삭제)<br />
-      15. git rebase (브랜치의 시작점을 옮김) <br />
-      16. git merge --squash 새브런치 분기점 합치기? <br />
-      17. git restore 파일명 (파일을 최근 commit 상태로 되돌리기) <br />
-      18. git restore --source 커밋 아이디 +파일명 (파일을 최근 commit 상태로
-      되돌리기) <br />
-      19. git restore --staged 파일명 (staging 취소 ) <br />
-      20. git revert 커밋 아이디 (commit 취소) (취소 후 olg --oneline 하면 기존
-      커밋 취소후 새로 커밋 해줌) (여러 아이디 넣을수 있음)<br />
-      21. git revert HEAD 최근 커밋 취소 <br />
-      22. git reset --hard 커밋 아이디 (과거로 모든걸 되돌리기) (타임머신)
-      (reset은 위험도 있어서 협업에서 잘 안씀)<br />
-      23. git reset --soft 리셋인데 변동 사항 지우지 않고 스테이징 <br />
-      24. git reset --mixed 리셋인데 변동 사항 지우지 않고 unstage <br />
-      25. git branch -M main 기본 브랜치 main으로 설정 <br />
-      26. git push -u 원격저장 주소 + 올릴 로컬 브랜치명(로컬 저장소를
-      원격저장소로 업로드) (원격 저장소와 로컬 저장소의 내용이 같을때만 push
-      가능)<br />
-      26_1. -u는 주소 기역 (한번 하고 나서는 git push만 써도됨) <br />
-      27. git remote add 변수명 + 주소 (git에서 변수명 사용 가능) <br />
-      28. git clone + 저장 주소 (소스 코드 복사) <br />
-      29. git pull (원격 저장소 내용 로컬 저장소로 땡겨오기) <br />
-      29_1. git pull +주소 변수+ 브랜치명 (브랜치명으로 땡겨오기 가능) <br />
-      29_2. git pull은 (git fetch + git merge => merge confilct 발생 가능)<br />
-      30. git fetch (원격 저장소 신규 commit 가져오기) <br />
+    <div class="wrapper">
+      <h1>git master</h1>
+      <h2>git 명령어</h2>
+
+      <div class="cmd" onclick="openModal('git init', '새로운 저장소 생성')">
+        1. git init
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git add 파일명', '파일을 staging area에 추가')"
+      >
+        2. git add
+      </div>
+      <div class="sub">- 여러 파일 추가 가능</div>
+      <div class="sub">- git add . → 모든 파일 스테이징</div>
+
+      <div
+        class="cmd"
+        onclick="
+          openModal(
+            `git commit -m '메시지'`,
+            '파일을 저장소(repository)에 기록',
+          )
+        "
+      >
+        3. git commit
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git status', '현재 스테이징 상태 확인')"
+      >
+        4. git status
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git log --all --oneline', '커밋 로그 조회')"
+      >
+        5. git log
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git diff', '최근 commit과 현재 파일 차이 비교')"
+      >
+        6. git diff
+      </div>
+      <div class="sub">- j/k 스크롤, q 종료</div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git difftool', 'vim 기반 시각적 비교')"
+      >
+        7. git difftool
+      </div>
+      <div class="sub">- h,j,k,l 이동 / :q 종료</div>
+      <div class="sub">- 특정 커밋 비교 가능</div>
+
+      <div
+        class="cmd"
+        onclick="openModal('Git Graph extension', '그래프로 커밋 구조 확인')"
+      >
+        8. Git Graph
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git branch 브랜치명', '브랜치 생성')"
+      >
+        9. git branch
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git switch 브랜치명', '브랜치 이동')"
+      >
+        10. git switch
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git add + commit', '작업 전 항상 저장 권장')"
+      >
+        11. 작업 전 저장
+      </div>
+
+      <div class="cmd" onclick="openModal('git merge 브랜치명', '브랜치 병합')">
+        12. git merge
+      </div>
+      <div class="sub">- 충돌 시 수정 후 add + commit</div>
+
+      <div
+        class="cmd"
+        onclick="
+          openModal('git branch -d 브랜치명', 'merge 완료된 브랜치 삭제')
+        "
+      >
+        13. git branch -d
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git branch -D 브랜치명', '강제 브랜치 삭제')"
+      >
+        14. git branch -D
+      </div>
+
+      <div class="cmd" onclick="openModal('git rebase', '브랜치 시작점 이동')">
+        15. git rebase
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git merge --squash', '커밋을 하나로 합쳐 병합')"
+      >
+        16. squash merge
+      </div>
+
+      <div
+        class="cmd"
+        onclick="
+          openModal('git restore 파일명', '파일을 최근 commit 상태로 복구')
+        "
+      >
+        17. git restore
+      </div>
+
+      <div
+        class="cmd"
+        onclick="
+          openModal(
+            'git restore --source 커밋아이디 파일명',
+            '특정 커밋 상태로 복구',
+          )
+        "
+      >
+        18. restore source
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git restore --staged 파일명', 'staging 취소')"
+      >
+        19. restore staged
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git revert 커밋아이디', '특정 커밋 취소')"
+      >
+        20. git revert
+      </div>
+
+      <div class="cmd" onclick="openModal('git revert HEAD', '최근 커밋 취소')">
+        21. revert HEAD
+      </div>
+
+      <div
+        class="cmd"
+        onclick="
+          openModal(
+            'git reset --hard 커밋아이디',
+            '해당 시점으로 완전 되돌림 (위험)',
+          )
+        "
+      >
+        22. reset hard
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git reset --soft', '변경사항 유지 + staging')"
+      >
+        23. reset soft
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git reset --mixed', '변경사항 유지 + unstage')"
+      >
+        24. reset mixed
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git branch -M main', '기본 브랜치 main으로 변경')"
+      >
+        25. branch main
+      </div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git push -u origin main', '원격 저장소 업로드')"
+      >
+        26. git push
+      </div>
+      <div class="sub">- -u 옵션은 주소 기억</div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git remote add 이름 주소', '원격 저장소 변수 등록')"
+      >
+        27. git remote
+      </div>
+
+      <div class="cmd" onclick="openModal('git clone 주소', '저장소 복사')">
+        28. git clone
+      </div>
+
+      <div class="cmd" onclick="openModal('git pull', '원격 내용 가져오기')">
+        29. git pull
+      </div>
+      <div class="sub">- fetch + merge 포함</div>
+
+      <div
+        class="cmd"
+        onclick="openModal('git fetch', '원격 commit만 가져오기')"
+      >
+        30. git fetch
+      </div>
+
+      <button onclick="history.back()">뒤로가기</button>
     </div>
-    <button onclick="history.back()">뒤로가기</button>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="code" id="modalCode"></div>
+        <div id="modalDesc"></div>
+        <br />
+        <button onclick="closeModal()">닫기</button>
+      </div>
+    </div>
+
+    <script>
+      function openModal(code, desc) {
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("modalCode").innerText = code;
+        document.getElementById("modalDesc").innerText = desc;
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
   </body>
 </html>

@@ -4,20 +4,97 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+ <style>
+  body {
+  margin: 0;
+  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* 전체 중앙 정렬 */
+.wrapper {
+  max-width: 700px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 제목 */
+h1 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  color: #222;
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #666;
+  border-left: 4px solid #1a73e8;
+  padding-left: 10px;
+}
+
+/* 내용 */
+.content {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* 코드 느낌 강조 */
+.content br + text,
+.content {
+  white-space: pre-line;
+}
+
+/* 명령어 강조 */
+.content span {
+  display: block;
+  background: #f1f3f5;
+  padding: 8px 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+}
+
+/* 버튼 */
+button {
+  margin-top: 30px;
+  padding: 10px 16px;
+  border: none;
+  background-color: #1a73e8;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #1557b0;
+}
+ </style>
   </head>
-  <body>
+ 
+  <div class="wrapper">
     <h1>git master</h1>
     <h2>git 설치</h2>
-    <div>
-      0. git = 코드 짜다 과거로 돌아가고 싶을때 매일 백업 하거나 버전 관리
-      소프트 쓰셈 <br />
-      1. git windows 다운 use vscode default editor, ovverride~~defult branch
-      <br />
+
+    <div class="content">
+      0. git = 코드 짜다 과거로 돌아가고 싶을때 매일 백업 하거나 버전 관리 소프트 쓰셈 <br />
+
+      1. git windows 다운 (use vscode default editor) <br />
+
       2. 폴더 파워셀 열기 <br />
-      3. git config --golbal user.email"~~@g,ail.com" <br />
-      3_1. git config --golbal user.name"~~" (띄어쓰기 조심 ) (아이디? 설정)
-      <br />
+
+      3. <span>git config --global user.email "~~@gmail.com"</span>
+
+      4. <span>git config --global user.name "~~"</span>
     </div>
+
     <button onclick="history.back()">뒤로가기</button>
-  </body>
+  </div>
+</body>
 </html>
